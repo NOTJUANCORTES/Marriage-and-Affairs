@@ -11,7 +11,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression, Ridge, Lasso, LogisticRegression, PoissonRegressor
 from sklearn.metrics import mean_squared_error, r2_score, confusion_matrix, ConfusionMatrixDisplay
 # import 
-df = pd.read_csv("affairs.csv")
+script_dir = Path(__file__).resolve().parent
+df = pd.read_csv(script_dir / "_data" / "affairs.csv")
 
 print(df.columns)
 print(df.head())
@@ -196,7 +197,7 @@ table.auto_set_font_size(False)
 table.set_fontsize(10)
 table.scale(1.2, 1.5)
 
-plt.savefig("classification_report.png", dpi=300, bbox_inches="tight")
+plt.savefig(script_dir / "classification_report.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 # Note:  The logistic regression model achieved 71% accuracy.
